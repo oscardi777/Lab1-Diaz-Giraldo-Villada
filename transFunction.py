@@ -19,9 +19,10 @@ def countletters(string, pos, l, door):
 
 def transs(modo, cadena):
 #Inicio de la funcion general de transicion del lenguaje
-
-  r = random.randint(8, 30)  #Se genera un número aleatorio entre 8 y 30 como longitud mínima requerida
-  p = random.randint(0,100)  #Se genera un número aleatorio entre 0 y 100 para la funcionalidad del 90% sesgado
+  if modo:
+    r = random.randint(8, 30)  #Se genera un número aleatorio entre 8 y 30 como longitud mínima requerida
+  else:
+    r = len(cadena)
 
   while True:
     #Dependiendo del tipo de validación que se haga se le pedira o no al usuario digitarla o simplemente se procedera a validar
@@ -41,19 +42,13 @@ def transs(modo, cadena):
     numb = checkb[1]  #Cantidad de 'b'
     num2a = check2a[1]  #Cantidad de 'a' finales
 
+    #Valores de la posicion donde terminan la secuencia de la primera a´s y de las b´s
+    n = check1a[2]
+    m = checkb[2]
+
     if door:
       mod = (num1a + numb - num2a) % 3  #Validación de múltiplo de 3
       if mod == 0 and len(string) >= r:
-        #A partir del numero random p, al tener su intervalo de 0-100, se tomara este resultado como un "separados" entre las probabilidades
-        if p<=90:
-          #El 90% de las veces se utilizara un n sesgado (a que gane la maquina)
-          n = check1a[2]
-          m = checkb[2]
-        else:
-          #El 10% de las veces se utilizara un n no sesgado (puede ganar cualquiera)
-          n = check1a[2] + 1
-          m = checkb[2]
-
         return True, string, n, m  #Retorna que la cadena es válida
       else:
         if modo:
@@ -69,4 +64,3 @@ def transs(modo, cadena):
         return False, "", 0, 0
 
 #Fin de la funcion general de transicion del lenguaje
-
