@@ -29,7 +29,6 @@ def splitPlayer(cadena, n, m, sesgo):
   if sesgo:
     n += 1
 
-  print(f"n={n}, m={m}, stop={stop}")
   # La cadena v puede parar hasta la ultima b y podra ser utilizada
   u = cadena[:n-1]
   v = cadena[n-1:stop]
