@@ -1,7 +1,7 @@
 import random
 from transFunction import transs
 
-def iterations_bot(u, v, x,i): 
+def iterations_bot(u, v, x, i): 
     #Inicio de la funcion de iterations_bot
     
     #Se actualiza el v (a partir del i suministrado) y se actualiza la cadena a w_i
