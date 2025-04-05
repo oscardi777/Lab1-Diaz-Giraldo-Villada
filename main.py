@@ -1,5 +1,5 @@
 from playerGame import userGame
-
+from BotGame import replicaGame
 def menu():
 #Inicio de la funcion de menu
     
@@ -16,7 +16,7 @@ def menu():
             userGame()  # Inicia el modo 'Usuario vs Máquina'
         elif opcion == "2":
             print("Has elegido la réplica contra la máquina.")
-            #botGame()  # Inicia el modo 'Replica vs Máquina'
+            replicaGame()  # Inicia el modo 'Replica vs Máquina'
         elif opcion == "3":
             print("Saliendo del programa...")
             break  # Sale del bucle y finaliza el programa
