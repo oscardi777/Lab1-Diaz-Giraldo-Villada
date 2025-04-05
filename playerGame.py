@@ -1,6 +1,5 @@
-from transFunction import transs
 import random
-
+from transFunction import transs
 
 def userGame(machine_winners, sesgo):
 #Inicio de la funcion de userGame
@@ -21,10 +20,11 @@ def userGame(machine_winners, sesgo):
 
 def splitPlayer(cadena, n, m, sesgo):
 
+  
   if m-n==1 : # Caso importante una sola b en la cadena
     stop = m
-  elif n==m:
-    n = int(n/2)
+  elif n==m or n==0:
+    n = int(m/2)
     stop = random.randint(n+1, m)
   else:
     stop = random.randint(n+1, m)
@@ -75,5 +75,3 @@ def iterationsPlayer(u, v, x):
   return answer
 
 #Fin de la funcion de iterations
-
-
