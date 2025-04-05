@@ -23,6 +23,9 @@ def splitPlayer(cadena, n, m, sesgo):
 
   if m-n==1 : # Caso importante una sola b en la cadena
     stop = m
+  elif n==m:
+    n = int(n/2)
+    stop = random.randint(n+1, m)
   else:
     stop = random.randint(n+1, m)
 

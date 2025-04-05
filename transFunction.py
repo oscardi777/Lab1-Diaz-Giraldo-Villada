@@ -1,11 +1,11 @@
 import random
 
-def countletters(string, pos, l, door):
+def countletters(w, pos, l, door):
 #Inicio de la funcion de countletters
   cont = 0  # Contador de caracteres l consecutivos
   i = pos  # Posición actual en la cadena
 
-  for lit in string[i:]: #Se verifica la letra desde la posicion i en adelante
+  for lit in w[i:]: #Se verifica la letra desde la posicion i en adelante
     if lit == l:
       #Se actualiza el contador de la letra y de la posicion donde se deja la lectura
       cont += 1
@@ -27,14 +27,14 @@ def transs(modo, cadena):
   while True:
     #Dependiendo del tipo de validación que se haga se le pedira o no al usuario digitarla o simplemente se procedera a validar
     if modo:
-      string = input(f"Ingrese una cadena de caracteres válida y de largo mayor o igual a {r}: ")
+      w = input(f"Ingrese una cadena de caracteres válida y de largo mayor o igual a {r}: ")
     else:
-      string = cadena
+      w = cadena
 
     #Realizar conteo de letras en cada sección esperada de la cadena
-    check1a = countletters(string, 0, "a", False)  #Contar las 'a' iniciales
-    checkb = countletters(string, check1a[2], "b", False)  #Contar las 'b' después de las primeras 'a'
-    check2a = countletters(string, checkb[2], "a", True)  #Contar las 'a' finales, recordar se recibe como ultimo parametro para determinar si hay letras b´s luego de las segundas a´s
+    check1a = countletters(w, 0, "a", False)  #Contar las 'a' iniciales
+    checkb = countletters(w, check1a[2], "b", False)  #Contar las 'b' después de las primeras 'a'
+    check2a = countletters(w, checkb[2], "a", True)  #Contar las 'a' finales, recordar se recibe como ultimo parametro para determinar si hay letras b´s luego de las segundas a´s
 
     #Extraer valores de cada verificación
     door = check2a[0]  #Indica si la cadena sigue siendo válida
@@ -46,10 +46,12 @@ def transs(modo, cadena):
     n = check1a[2]
     m = checkb[2]
 
+    long_w = num1a + numb + num2a # Contador del tamaño de la cadena caracter a caracter
+
     if door:
       mod = (num1a + numb - num2a) % 3  #Validación de múltiplo de 3
-      if mod == 0 and len(string) >= r:
-        return True, string, n, m  #Retorna que la cadena es válida
+      if mod == 0 and long_w >= r:
+        return True, w, n, m  #Retorna que la cadena es válida
       else:
         if modo:
           print("La cadena no es válida. Por favor vuelva a intentarlo.")
