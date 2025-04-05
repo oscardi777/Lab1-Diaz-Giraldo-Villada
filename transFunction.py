@@ -48,23 +48,25 @@ def transs(modo, cadena):
         if p<=90:
           #El 90% de las veces se utilizara un n sesgado (a que gane la maquina)
           n = check1a[2]
+          m = checkb[2]
         else:
           #El 10% de las veces se utilizara un n no sesgado (puede ganar cualquiera)
           n = check1a[2] + 1
+          m = checkb[2]
 
-        return True, string, n  #Retorna que la cadena es válida
+        return True, string, n, m  #Retorna que la cadena es válida
       else:
         if modo:
           print("La cadena no es válida. Por favor vuelva a intentarlo.")
         else:
           #La cadena no es válida la maquina gana
-          return False, "", 0
+          return False, "", 0, 0
     else:
       if modo:
         print("La cadena no es válida. Por favor vuelva a intentarlo.")
       else:
         #La cadena no es válida la maquina gana
-        return False, "", 0
+        return False, "", 0, 0
 
 #Fin de la funcion general de transicion del lenguaje
 
