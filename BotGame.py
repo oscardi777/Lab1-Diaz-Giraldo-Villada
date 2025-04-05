@@ -1,30 +1,6 @@
 import random
 from transFunction import transs
 
-def iterations_bot(u, v, x, i): 
-    #Inicio de la funcion de iterations_bot
-    
-    #Se actualiza el v (a partir del i suministrado) y se actualiza la cadena a w_i
-    
-    v_i = v*i
-    w_i = u+v_i+x
-    print(f"Su nueva cadena v´ = {v_i} ")
-    print(f"Luego su cadena w´ = {w_i} ")
-    print("Ahora revisemos si es aceptada por el Lenguaje")
-
-    answer, cadena, n = transs(modo=False, cadena=w_i)
-    
-    #Se decide el ganador del juego:
-    
-    if(answer):
-        print("La cadena es aceptada por el lenguaje")
-        print("Has ganado")
-    else:
-        print("La cadena no es aceptada por el lenguaje")
-        print("Ha ganado la maquina")
-        
-    #Fin de la funcion de iterations_bot
-    
 def replicaGame():
     
     #Inicio de la funcion replicaGame
@@ -47,7 +23,7 @@ def replicaGame():
       if (k+s+n)>=l:    # Se verifica que la cadena si cumpla con la longitud y se genera la cadena
         cadena = "a"*k + "b"*s + "a"*n
         print("La cadena aleatoria es: " + cadena)
-        answer, cadena, n = transs(False, cadena) # Se verifica la cadena
+        answer, cadena, n, m = transs(False, cadena) # Se verifica la cadena
         break
       else: 
         continue
@@ -59,8 +35,35 @@ def replicaGame():
       print("La cadena se ha validado correctamente")
       print("Se hará una partición de la siguiente manera")
       print(f"Se escogerá u = {u} ; v = {v} ; x = {x}")
+      print("Ahora se solicita un i valido que mantenga la validez de la cadena:")
       i= random.randint(0,30)
+      print(f"El i escogido ha sido: {i}")
 
-    iterations_bot(u, v, x, i)
+    winner = iterations_bot(u, v, x, i)
+
+    if winner:
+      print("La cadena es valida, la replica ha ganado")
+    else:
+      print("La cadena no es valida, la replica ha perdido")
     
     #Fin de la funcion replicaGame
+
+
+def iterations_bot(u, v, x,i): 
+    #Inicio de la funcion de iterations_bot
+    
+    #Se actualiza el v (a partir del i suministrado) y se actualiza la cadena a w_i
+    
+    v_i = v*i
+    w_i = u+v_i+x
+    print(f"Su nueva cadena v´ = {v_i} ")
+    print(f"Luego su cadena w´ = {w_i} ")
+    print("Ahora revisemos si es aceptada por el Lenguaje")
+
+    answer, string, n, m = transs(modo=False, cadena=w_i)
+    
+    #Se decide el ganador del juego:
+    
+    return answer
+        
+    #Fin de la funcion de iterations_bot

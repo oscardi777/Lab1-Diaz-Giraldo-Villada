@@ -1,13 +1,23 @@
 from transFunction import transs
+import random as r
+
 
 def userGame():
 #Inicio de la funcion de userGame
 
-  answer, cadena, n = transs(True, "")  # Obtiene la validación de la cadena
+  answer, cadena, n, m = transs(True, "")  # Obtiene la validación de la cadena
   if answer:
+
+    if m-n>1 : # Caso importante una sola b en la cadena
+      stop = r.randint(n, m)
+    else:
+      stop = m
+
+    # La cadena v puede parar hasta la ultima b y podra ser utilizada
+
     u = cadena[:n-1]
-    v = cadena[n-1:n+1]
-    x = cadena[n+1:]
+    v = cadena[n-1:stop]
+    x = cadena[stop:]
 
     #Se muestra al usuario la seleccion arbitriara de los u, v y x
 
@@ -16,7 +26,12 @@ def userGame():
     print(f"Se escogerá u = {u} ; v = {v} ; x = {x}")
 
   #Se llama la funcion iterations para que el usuario escoja su i correspondiente
-  iterations(u, v, x)
+  winner = iterations(u, v, x)
+
+  if winner:
+    print("La cadena es valida, el jugador ha ganado")
+  else:
+    print("La cadena no es valida, el jugador ha perdido")
 
 #Fin de la funcion de userGame
 
@@ -43,15 +58,10 @@ def iterations(u, v, x):
   print("Ahora revisemos si es aceptada por el Lenguaje")
 
   #Se verifica la aceptacion de esta nueva cadena a partir del modo False de la función transs
-  answer, cadena, n = transs(modo=False, cadena=w_i)
+  answer = transs(modo=False, cadena=w_i)[0]
 
-  #Se decide el ganador del juego:
-  if(answer):
-    print("La cadena es aceptada por el lenguaje")
-    print("Has ganado")
-  else:
-    print("La cadena no es aceptada por el lenguaje")
-    print("Ha ganado la maquina")
+  #Se returna la validez de la nueva cadena:
+  return answer
 
 #Fin de la funcion de iterations
 
