@@ -1,41 +1,50 @@
 from transFunction import transs
-import random as r
+import random
 
 
-def userGame():
+def userGame(machine_winners, sesgo):
 #Inicio de la funcion de userGame
 
   answer, cadena, n, m = transs(True, "")  # Obtiene la validación de la cadena
   if answer:
+    #Se llama la funcion iterations para que el usuario escoja su i correspondiente
+    winner = splitPlayer(cadena, n, m, sesgo)
 
-    if m-n>1 : # Caso importante una sola b en la cadena
-      stop = r.randint(n, m)
+    if winner:
+      print("La nueva cadena es valida, el jugador ha ganado")
+      return machine_winners
     else:
-      stop = m
-
-    # La cadena v puede parar hasta la ultima b y podra ser utilizada
-
-    u = cadena[:n-1]
-    v = cadena[n-1:stop]
-    x = cadena[stop:]
-
-    #Se muestra al usuario la seleccion arbitriara de los u, v y x
-
-    print("La cadena se ha validado correctamente")
-    print("Se hará una partición de la siguiente manera")
-    print(f"Se escogerá u = {u} ; v = {v} ; x = {x}")
-
-  #Se llama la funcion iterations para que el usuario escoja su i correspondiente
-  winner = iterations(u, v, x)
-
-  if winner:
-    print("La cadena es valida, el jugador ha ganado")
-  else:
-    print("La cadena no es valida, el jugador ha perdido")
+      print("La nueva cadena no es valida, el jugador ha perdido")
+      return machine_winners + 1
 
 #Fin de la funcion de userGame
 
-def iterations(u, v, x):
+def splitPlayer(cadena, n, m, sesgo):
+
+  if m-n==1 : # Caso importante una sola b en la cadena
+    stop = m
+  else:
+    stop = random.randint(n+1, m)
+
+  if sesgo:
+    n += 1
+
+  print(f"n={n}, m={m}, stop={stop}")
+  # La cadena v puede parar hasta la ultima b y podra ser utilizada
+  u = cadena[:n-1]
+  v = cadena[n-1:stop]
+  x = cadena[stop:]
+
+  #Se muestra al usuario la seleccion arbitriara de los u, v y x
+  print("La cadena se ha validado correctamente")
+  print("Se hará una partición de la siguiente manera")
+  print(f"Se escogerá u = {u} ; v = {v} ; x = {x}")
+
+  #Se llama la funcion iterations para que el usuario escoja su i correspondiente
+  return iterationsPlayer(u, v, x)
+
+
+def iterationsPlayer(u, v, x):
 #Inicio de la funcion de iterations
 
   print("Escoja un numero i para repetir i-veces la cadena v tal que pertenezca a L")
@@ -58,7 +67,7 @@ def iterations(u, v, x):
   print("Ahora revisemos si es aceptada por el Lenguaje")
 
   #Se verifica la aceptacion de esta nueva cadena a partir del modo False de la función transs
-  answer = transs(modo=False, cadena=w_i)[0]
+  answer = transs(False, w_i)[0]
 
   #Se returna la validez de la nueva cadena:
   return answer
