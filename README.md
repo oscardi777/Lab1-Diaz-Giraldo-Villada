@@ -73,7 +73,31 @@ Archivo playerGame.py:
     Asi se definiria si el usuario gana o pierde en el juego
 
     """
+Archivo botGame.py:
+    Función replicaGame()
+    """
+    Función que representa el juego en el modo 'Réplica vs Máquina'.
 
+    Genera cadenas aleatorias que pertenecen a L, las valida y procede con la partición de estas.
+    
+    Lo hace a partir de la función transs(False, cadena) que al estar en False no se pedira una cadena al usuario, sino que verifica directamente la cadena que recibio como parámetro de entrada.
+
+    Esta función ademas de retornar la cadena aleatoria, retorna la posicion donde empiezan las letras b´s de la misma. Esta informacion es importante para realizar la particion en las subcadenas u, v y x
+
+    Llama a la función iterationsBot() para que el programa empiece a validar si la palabra uv^ix sera aceptada de acuerdo a un i generado aleatoriamente. 
+
+    Función iterationsBot(u, v, x)
+
+    Función que realizara la validacion pertinente al valor i aleatorio.
+
+    Recibe como parametros cada una de las subcadenas u, v, x. Y genera un numero i aleatorio 
+
+    Se actualiza la cadena a partir del i aleatorio para crear w_i, la cual ahora sera validada por transs
+
+    Esta ultima función en particular, ahora sera llamada con su modo en Falso para que no verifique la cadena "hasta" que la misma sea aceptada, sino que tendra el resultado de ser aceptada o no y es todo.
+
+    Asi se definiria si la replica gana o pierde en el juego.
+    
 Archivo main.py
     Función menu:
 
