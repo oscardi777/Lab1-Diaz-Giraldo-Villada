@@ -115,7 +115,7 @@ Proyecto Laboratorio 1 LFA
 
 
     
-Archivo playerGame.py:
+" Archivo playerGame.py:
 
     """
     Función userGame(machine_winners, sesgo):
@@ -221,7 +221,7 @@ Archivo playerGame.py:
 
             - (bool): Indica si la nueva cadena bombeada pertenece al lenguaje L.
 
-Archivo botGame.py:
+" Archivo botGame.py:
 
     """
     Función replicaGame():
@@ -329,7 +329,7 @@ Archivo botGame.py:
 
             - (bool): Indica si la nueva cadena bombeada pertenece al lenguaje L.
 
-Archivo main.py:
+" Archivo main.py:
 
     """
     Función menu():
