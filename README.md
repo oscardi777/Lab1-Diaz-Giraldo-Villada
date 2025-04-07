@@ -1,6 +1,12 @@
 # Lab1-Diaz-Giraldo-Villada
 Proyecto Laboratorio 1 LFA
 
+Desarrollado por:
+
+1. Samuel Villada
+2. Juliana Giraldo
+3. Oscar Diaz
+
 # Para ejecutar el codigo: 
 Descargue los cuatro archivos:
 
