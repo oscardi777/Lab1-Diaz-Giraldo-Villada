@@ -133,7 +133,7 @@ Python .\main.py
 
 
     
-" Archivo playerGame.py:
+## Archivo playerGame.py:
 
     """
     Función userGame(machine_winners, sesgo):
@@ -239,7 +239,7 @@ Python .\main.py
 
             - (bool): Indica si la nueva cadena bombeada pertenece al lenguaje L.
 
-" Archivo botGame.py:
+## Archivo botGame.py:
 
     """
     Función replicaGame():
@@ -347,7 +347,7 @@ Python .\main.py
 
             - (bool): Indica si la nueva cadena bombeada pertenece al lenguaje L.
 
-" Archivo main.py:
+## Archivo main.py:
 
     """
     Función menu():
