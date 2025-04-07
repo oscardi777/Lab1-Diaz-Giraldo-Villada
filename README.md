@@ -2,7 +2,8 @@
 Proyecto Laboratorio 1 LFA
 
 # Para ejecutar el codigo: 
-Descargue los cuatro archivos
+Descargue los cuatro archivos:
+
     -botGame.py
     -main.py
     -playerGame.py
