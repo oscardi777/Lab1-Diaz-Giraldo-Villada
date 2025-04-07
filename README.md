@@ -1,6 +1,14 @@
 # Lab1-Diaz-Giraldo-Villada
 Proyecto Laboratorio 1 LFA
 
+# Para ejecutar el codigo descargue los cuatro archivos:
+    -botGame.py
+    -main.py
+    -playerGame.py
+    -transFunction.py
+Y luego ejecute desde la terminal (en la carpeta donde se encuentran los cuatro archivos):
+
+Python .\main.py
 
 " Archivo transFunction.py:
 
