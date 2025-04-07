@@ -20,7 +20,7 @@ Python .\main.py
 
 # Explicación de las funciones encontradas en cada archivo:
 
-" Archivo transFunction.py:
+## Archivo transFunction.py:
 
     """
     Función transs(modo, cadena):
