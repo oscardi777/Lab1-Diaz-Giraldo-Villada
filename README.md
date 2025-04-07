@@ -2,7 +2,7 @@
 Proyecto Laboratorio 1 LFA
 
 
-# Archivo transFunction.py:
+" Archivo transFunction.py:
 
     """
     Función transs(modo, cadena):
