@@ -10,6 +10,8 @@ Y luego ejecute desde la terminal (en la carpeta donde se encuentran los cuatro 
 
 Python .\main.py
 
+# Explicación de las funciones encontradas en cada archivo:
+
 " Archivo transFunction.py:
 
     """
